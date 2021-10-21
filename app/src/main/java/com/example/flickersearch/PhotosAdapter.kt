@@ -1,5 +1,6 @@
 package com.example.flickersearch
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -12,6 +13,7 @@ import com.example.flickersearch.models.Photo
 
 
 class PhotosAdapter(private val viewModel: MainViewModel) : ListAdapter<Photo, PhotosAdapter.ViewHolder>(PhotosDiffUtilCallBack()) {
+    private var page = 1
     class ViewHolder(private val binding: LayoutFlickerImageBinding,private val viewModel: MainViewModel):RecyclerView.ViewHolder(binding.root) {
         fun bind(item:Photo){
             binding.imgLogo.setImage(item)
@@ -25,6 +27,13 @@ class PhotosAdapter(private val viewModel: MainViewModel) : ListAdapter<Photo, P
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(getItem(position))
+
+        Log.i("RecyclerView","Position: $position Count :$itemCount")
+        if (position == itemCount-1){
+            Log.i("RecyclerView","If is triggered")
+            page += 1
+            viewModel.loadMore(page)
+        }
     }
 }
 

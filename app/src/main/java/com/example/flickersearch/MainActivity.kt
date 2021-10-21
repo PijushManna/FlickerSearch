@@ -27,18 +27,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.rcrImageList.adapter = adapter
         binding.lifecycleOwner = this
-//        binding.model = viewModel
+        viewModel.setRequestQueue(Volley.newRequestQueue(applicationContext))
 
-        requestQueue = Volley.newRequestQueue(applicationContext)
-        requestQueue.add(viewModel.fetchData("cars"))
-
+        viewModel.fetchData("cars")
         viewModel.photoLiveList.observe(this,{
             adapter.submitList(it)
         })
         binding.searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 p0?.also {
-                    requestQueue.add(viewModel.fetchData(it))
+                    viewModel.fetchData(it)
                 }
                 return true
             }
@@ -48,9 +46,6 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
-        var page = 2
-        binding.button.setOnClickListener {
-            requestQueue.add(viewModel.loadMore(page++))
-        }
+
     }
 }

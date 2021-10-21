@@ -10,7 +10,10 @@ import com.example.flickersearch.models.Photo
 fun ImageView.setImage(item: Photo?){
     item?.also{
         val url = "https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}.jpg"
-        Glide.with(this.context).load(url).into(this)
+        Glide.with(this.context)
+            .load(url)
+            .placeholder(R.drawable.loading)
+            .into(this)
     }
 }
 
