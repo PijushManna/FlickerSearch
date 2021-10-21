@@ -2,6 +2,7 @@ package com.example.flickersearch
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -29,10 +30,23 @@ class MainActivity : AppCompatActivity() {
 //        binding.model = viewModel
 
         requestQueue = Volley.newRequestQueue(applicationContext)
-        requestQueue.add(viewModel.fetchData("tesla"))
+        requestQueue.add(viewModel.fetchData("cars"))
+
         viewModel.photoLiveList.observe(this,{
-            binding.textView.text = it?.size.toString()
             adapter.submitList(it)
+        })
+        binding.searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                p0?.also {
+                    requestQueue.add(viewModel.fetchData(it))
+                }
+                return true
+            }
+
+            override fun onQueryTextChange(p0: String?): Boolean {
+                return false
+            }
+
         })
         var page = 2
         binding.button.setOnClickListener {

@@ -9,9 +9,8 @@ import com.example.flickersearch.models.Photo
 @BindingAdapter("set_image")
 fun ImageView.setImage(item: Photo?){
     item?.also{
-        val url = "http://farm${it.farm}.static.flickr.com/${it.server}/${it.id}_${it.secret}.jpg"
-        val url2 = "https://picsum.photos/200/300"
-        Glide.with(this.context).load(url2).into(this)
+        val url = "https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}.jpg"
+        Glide.with(this.context).load(url).into(this)
     }
 }
 
