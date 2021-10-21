@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
     private val adapter:PhotosAdapter by lazy {
         PhotosAdapter(viewModel)
     }
-    private lateinit var requestQueue:RequestQueue
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,8 +27,6 @@ class MainActivity : AppCompatActivity() {
         binding.rcrImageList.adapter = adapter
         binding.lifecycleOwner = this
         viewModel.setRequestQueue(Volley.newRequestQueue(applicationContext))
-
-        viewModel.fetchData("cars")
         viewModel.photoLiveList.observe(this,{
             adapter.submitList(it)
         })

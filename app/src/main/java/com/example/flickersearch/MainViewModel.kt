@@ -18,9 +18,6 @@ class MainViewModel : ViewModel() {
     var searchText: String? = null
     lateinit var myQueue:RequestQueue
 
-    init {
-        Log.i("ViewModel", "INIT")
-    }
     fun setRequestQueue(queue:RequestQueue){
         myQueue = queue
     }

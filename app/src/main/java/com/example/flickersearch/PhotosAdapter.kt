@@ -30,7 +30,6 @@ class PhotosAdapter(private val viewModel: MainViewModel) : ListAdapter<Photo, P
 
         Log.i("RecyclerView","Position: $position Count :$itemCount")
         if (position == itemCount-1){
-            Log.i("RecyclerView","If is triggered")
             page += 1
             viewModel.loadMore(page)
         }
