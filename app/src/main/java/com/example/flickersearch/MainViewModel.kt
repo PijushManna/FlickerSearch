@@ -1,6 +1,7 @@
 package com.example.flickersearch
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -14,7 +15,8 @@ import kotlinx.coroutines.launch
 class MainViewModel : ViewModel() {
     private val gson = GsonBuilder().create()
     private val photosList = ArrayList<Photo>()
-    val photoLiveList = MutableLiveData<List<Photo>?>()
+    private val _photoLiveList = MutableLiveData<List<Photo>?>()
+    val photoLiveList: LiveData<List<Photo>?> = _photoLiveList
     var searchText: String? = null
     lateinit var myQueue:RequestQueue
 
@@ -34,7 +36,7 @@ class MainViewModel : ViewModel() {
                             photosList.addAll(img)
                         }
                     }
-                    photoLiveList.value = photosList.toList()
+                   _photoLiveList.value = photosList.toList()
                 }
             },
             {
@@ -59,7 +61,7 @@ class MainViewModel : ViewModel() {
                             photosList.add(img)
                         }
                     }
-                    photoLiveList.value = photosList.toList()
+                    _photoLiveList.value = photosList.toList()
                 }
             },
             {

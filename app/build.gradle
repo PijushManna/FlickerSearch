@@ -69,4 +69,7 @@ dependencies {
     //Fragment
     implementation 'androidx.fragment:fragment-ktx:1.3.6'
 
+    //Flexbox
+    implementation 'com.google.android.flexbox:flexbox:3.0.0'
+
 }

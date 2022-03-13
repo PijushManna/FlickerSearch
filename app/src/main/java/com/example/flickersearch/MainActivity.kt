@@ -1,23 +1,22 @@
 package com.example.flickersearch
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.SearchView
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
-import com.android.volley.RequestQueue
 import com.android.volley.toolbox.Volley
+import com.example.flickersearch.adapters.PhotosAdapter
 import com.example.flickersearch.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
     private val binding:ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
     private val viewModel:MainViewModel by lazy {
-        ViewModelProviders.of(this).get(MainViewModel::class.java)
+        ViewModelProvider(this)[MainViewModel::class.java]
     }
-    private val adapter:PhotosAdapter by lazy {
+    private val adapter: PhotosAdapter by lazy {
         PhotosAdapter(viewModel)
     }
 
@@ -26,10 +25,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.rcrImageList.adapter = adapter
         binding.lifecycleOwner = this
+        binding.model = viewModel
+
         viewModel.setRequestQueue(Volley.newRequestQueue(applicationContext))
-        viewModel.photoLiveList.observe(this,{
-            adapter.submitList(it)
-        })
+        viewModel.fetchData("random")
         binding.searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 p0?.also {
@@ -43,6 +42,5 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
-
     }
 }

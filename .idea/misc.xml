@@ -3,12 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../Library/Android/sdk/platforms/android-31/data/res/drawable/progress_indeterminate_horizontal.xml" value="0.2085" />
         <entry key="app/src/main/res/layout-w1240dp/content_scrolling.xml" value="0.129296875" />
         <entry key="app/src/main/res/layout-w936dp/content_scrolling.xml" value="0.191796875" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.30648148148148147" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_scrolling.xml" value="0.2557291666666667" />
         <entry key="app/src/main/res/layout/content_scrolling.xml" value="0.2557291666666667" />
         <entry key="app/src/main/res/layout/layout_flicker_image.xml" value="0.30648148148148147" />
+        <entry key="app/src/main/res/menu/menu_scrolling.xml" value="0.2564814814814815" />
       </map>
     </option>
   </component>
