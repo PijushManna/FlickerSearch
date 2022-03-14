@@ -1,4 +1,4 @@
-package com.example.flickersearch
+package com.androidblog67.photosinfinity
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -7,8 +7,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
-import com.example.flickersearch.models.FlickerImages
-import com.example.flickersearch.models.Photo
+import com.androidblog67.photosinfinity.models.FlickerImages
+import com.androidblog67.photosinfinity.models.Photo
 import com.google.gson.GsonBuilder
 import kotlinx.coroutines.launch
 

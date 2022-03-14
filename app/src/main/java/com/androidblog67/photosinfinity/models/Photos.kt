@@ -1,4 +1,4 @@
-package com.example.flickersearch.models
+package com.androidblog67.photosinfinity.models
 
 import com.google.gson.annotations.SerializedName
 import com.google.gson.annotations.Expose

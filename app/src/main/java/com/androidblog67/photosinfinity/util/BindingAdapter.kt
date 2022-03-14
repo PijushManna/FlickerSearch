@@ -1,12 +1,12 @@
-package com.example.flickersearch
+package com.androidblog67.photosinfinity.util
 
 import android.util.Log
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.flickersearch.adapters.PhotosAdapter
-import com.example.flickersearch.models.Photo
+import com.androidblog67.photosinfinity.adapters.PhotosAdapter
+import com.androidblog67.photosinfinity.models.Photo
 
 @BindingAdapter("set_image")
 fun ImageView.setImage(item: Photo?){

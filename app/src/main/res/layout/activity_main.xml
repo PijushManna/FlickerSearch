@@ -7,7 +7,7 @@
 
         <variable
             name="model"
-            type="com.example.flickersearch.MainViewModel" />
+            type="com.androidblog67.photosinfinity.MainViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -38,7 +38,8 @@
                     android:layout_gravity="bottom"
                     android:layout_marginTop="1dp"
                     android:background="?attr/colorOnPrimary"
-                    android:iconifiedByDefault="false" />
+                    android:iconifiedByDefault="false"
+                    android:queryHint="@string/query_hint" />
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
         </com.google.android.material.appbar.AppBarLayout>

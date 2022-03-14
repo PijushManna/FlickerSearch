@@ -1,4 +1,4 @@
-package com.example.flickersearch
+package com.androidblog67.photosinfinity
 
 import org.junit.Test
 
